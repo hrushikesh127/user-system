@@ -1,0 +1,113 @@
+.userbox {
+  margin: 40px 0 0;
+  padding: 24px 28px 0;
+  border: 1px solid var(--color-border);
+  border-bottom: 0;
+  border-radius: 20px 20px 0 0;
+  background: linear-gradient(135deg, rgba(17, 27, 44, 0.96), rgba(13, 20, 33, 0.94));
+}
+
+.userbox h2 {
+  margin: 0;
+  color: var(--color-text);
+  font-family: 'Manrope', sans-serif;
+  font-size: clamp(1.4rem, 3vw, 1.8rem);
+  font-weight: 700;
+  letter-spacing: -0.045em;
+}
+
+.inputs {
+  margin: 0 0 48px;
+  padding: 20px 28px 28px;
+  border: 1px solid var(--color-border);
+  border-top: 0;
+  border-radius: 0 0 20px 20px;
+  background: linear-gradient(135deg, rgba(17, 27, 44, 0.96), rgba(13, 20, 33, 0.94));
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.2);
+}
+
+.inputs form {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.inputs input {
+  width: 100%;
+  min-width: 0;
+  padding: 14px 15px;
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  outline: none;
+  background: rgba(5, 10, 19, 0.42);
+  color: var(--color-text);
+  font-size: 0.92rem;
+  transition: border-color 180ms ease, box-shadow 180ms ease, background 180ms ease;
+}
+
+.inputs input::placeholder {
+  color: #75849c;
+}
+
+.inputs input:focus {
+  border-color: var(--color-accent-bright);
+  background: rgba(5, 10, 19, 0.65);
+  box-shadow: 0 0 0 3px rgba(168, 157, 255, 0.14);
+}
+
+.inputs em {
+  grid-column: 1 / -1;
+  margin-top: -6px;
+  color: #fca5a5;
+  font-size: 0.84rem;
+  font-style: normal;
+}
+
+.inputs button {
+  grid-column: 1 / -1;
+  justify-self: start;
+  min-width: 132px;
+  padding: 13px 20px;
+  border: 1px solid rgba(168, 157, 255, 0.42);
+  border-radius: 12px;
+  background: linear-gradient(135deg, #8b7cff, #6e5de7);
+  box-shadow: 0 8px 22px rgba(111, 93, 231, 0.24);
+  color: #fff;
+  font-size: 0.92rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 180ms ease, box-shadow 180ms ease, filter 180ms ease;
+}
+
+.inputs button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(111, 93, 231, 0.36);
+  filter: brightness(1.08);
+}
+
+.inputs button:active {
+  transform: translateY(0);
+}
+
+.inputs button:focus-visible {
+  outline: 3px solid rgba(168, 157, 255, 0.45);
+  outline-offset: 3px;
+}
+
+@media (max-width: 600px) {
+  .userbox {
+    margin-top: 28px;
+    padding: 22px 20px 0;
+  }
+
+  .inputs {
+    margin-bottom: 40px;
+    padding: 18px 20px 22px;
+  }
+}
+
+@media (max-width: 460px) {
+  .inputs form {
+    grid-template-columns: 1fr;
+  }
+}
