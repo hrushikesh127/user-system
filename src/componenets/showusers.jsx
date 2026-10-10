@@ -2,7 +2,7 @@ import './showusers.css'
 import Userdata from '../custom-hooks/userdata'
 import useDeleteuser from '../custom-hooks/useDeleteuser'
 
-export default function Showusers({onupdate}) {
+export default function Showusers({search,onupdate}) {
     const { data: users, error, isPending, isError } = Userdata('/users')
     const userdeletemutation = useDeleteuser();
 
@@ -13,6 +13,11 @@ export default function Showusers({onupdate}) {
         userdeletemutation.mutate({id});
 
     }
+    const filteredusers = users.filter((user)=>(
+        user.name.toLowerCase().includes(search.toLowerCase())
+
+
+    ))
 
     return (
         <section className="users-section">
@@ -24,7 +29,7 @@ export default function Showusers({onupdate}) {
                 <span className="user-count">{users.length} users</span>
             </div>
             <div className="users-grid">
-                {users?.map((user,index) => (
+                {filteredusers?.map((user,index) => (
                     <article key={index} className="user-card">
                         <h3>{user.name}</h3>
                         <h4>@{user.username}</h4>

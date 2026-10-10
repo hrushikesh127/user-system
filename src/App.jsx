@@ -6,13 +6,14 @@ import Userbox from "./componenets/user-box"
 
 function App() {
   const [selecteduser ,setselecteduser] = useState(null);
+  const [search ,setsearch] = useState("");
 
 
   return (
     <main className="app-shell">
-      <Navbar />
+      <Navbar setsearch={setsearch}/>
       <Userbox user={selecteduser} onupdate={setselecteduser} />
-      <Showusers onupdate={setselecteduser} />
+      <Showusers search={search} onupdate={setselecteduser} />
     </main>
   )
 }
